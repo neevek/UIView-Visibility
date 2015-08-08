@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YQ0-0c-oHm">
+                                <rect key="frame" x="0.0" y="60" width="600" height="123"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is the first line of text" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wEc-NW-Ou0">
+                                        <rect key="frame" x="80" y="27" width="196" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is the second line of text" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QcH-O5-ilc">
+                                        <rect key="frame" x="80" y="54" width="224" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is the third line of text" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dqf-fw-Hw2">
+                                        <rect key="frame" x="80" y="81" width="202" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Donkey" translatesAutoresizingMaskIntoConstraints="NO" id="Hyk-Sm-X2I">
+                                        <rect key="frame" x="8" y="30" width="64" height="64"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="wEc-NW-Ou0" firstAttribute="top" secondItem="YQ0-0c-oHm" secondAttribute="top" constant="27" id="5tJ-aL-TGn"/>
+                                    <constraint firstItem="wEc-NW-Ou0" firstAttribute="leading" secondItem="QcH-O5-ilc" secondAttribute="leading" id="YaU-A4-sgA"/>
+                                    <constraint firstItem="Hyk-Sm-X2I" firstAttribute="leading" secondItem="YQ0-0c-oHm" secondAttribute="leading" constant="8" id="dC1-7t-1tp"/>
+                                    <constraint firstItem="wEc-NW-Ou0" firstAttribute="leading" secondItem="Hyk-Sm-X2I" secondAttribute="trailing" constant="8" id="gRZ-Fj-p7V"/>
+                                    <constraint firstItem="Hyk-Sm-X2I" firstAttribute="top" secondItem="YQ0-0c-oHm" secondAttribute="top" constant="30" id="jdm-7G-Gjh"/>
+                                    <constraint firstAttribute="height" constant="123" id="kTa-Ak-KPi"/>
+                                    <constraint firstItem="dqf-fw-Hw2" firstAttribute="leading" secondItem="wEc-NW-Ou0" secondAttribute="leading" id="mDU-Pe-DsQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="Hyk-Sm-X2I" secondAttribute="bottom" constant="29" id="npZ-dO-lIr"/>
+                                    <constraint firstItem="wEc-NW-Ou0" firstAttribute="top" relation="greaterThanOrEqual" secondItem="YQ0-0c-oHm" secondAttribute="top" constant="27" id="uDy-A8-4IW"/>
+                                    <constraint firstItem="QcH-O5-ilc" firstAttribute="top" secondItem="wEc-NW-Ou0" secondAttribute="bottom" constant="6" id="vgn-aU-Fvv"/>
+                                    <constraint firstItem="dqf-fw-Hw2" firstAttribute="top" secondItem="QcH-O5-ilc" secondAttribute="bottom" constant="6" id="x16-LP-Mf3"/>
+                                </constraints>
+                            </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tEx-Oc-Lo4">
+                                <rect key="frame" x="0.0" y="191" width="600" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="y1f-gq-DCT"/>
+                                </constraints>
+                                <string key="text">The second line of text will be set to 'GONE' after 10 seconds.
+
+After that, the image will be set to 'GONE' after 1 seconds and then restored to its original position with the same dimension &amp; margins.
+
+When the second line of text is set to 'GONE', the third line of text will be moved to its place. When the image is set to 'GONE', all the lines on the right will be moved to the left edge.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tEx-Oc-Lo4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="3yS-6q-ZGZ"/>
+                            <constraint firstItem="YQ0-0c-oHm" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="WL9-f5-lqC"/>
+                            <constraint firstItem="tEx-Oc-Lo4" firstAttribute="top" secondItem="YQ0-0c-oHm" secondAttribute="bottom" constant="8" id="f8P-UT-GKG"/>
+                            <constraint firstAttribute="trailing" secondItem="YQ0-0c-oHm" secondAttribute="trailing" id="fd3-mp-3Hc"/>
+                            <constraint firstItem="YQ0-0c-oHm" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="40" id="fso-5W-0fD"/>
+                            <constraint firstAttribute="trailing" secondItem="tEx-Oc-Lo4" secondAttribute="trailing" id="s5j-mi-bmU"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="ivImage" destination="Hyk-Sm-X2I" id="SbP-im-yuB"/>
+                        <outlet property="lbFirstLine" destination="wEc-NW-Ou0" id="LGo-0x-bv9"/>
+                        <outlet property="lbSecondLine" destination="QcH-O5-ilc" id="rRX-CR-cNp"/>
+                        <outlet property="lbThirdLine" destination="QcH-O5-ilc" id="jyf-ts-QEW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="763" y="418"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Donkey" width="64" height="64"/>
+    </resources>
+</document>
