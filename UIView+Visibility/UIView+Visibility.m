@@ -27,6 +27,7 @@
             self.hidden = YES;
             break;
         case UIViewVisibilityGone:
+            self.hidden = YES;
             [[self findConstraintFromView:self forLayoutAttribute:NSLayoutAttributeWidth] clear];
             [[self findConstraintFromView:self forLayoutAttribute:NSLayoutAttributeHeight] clear];
             [self clearMarginForDirections:affectedMarginDirections];
