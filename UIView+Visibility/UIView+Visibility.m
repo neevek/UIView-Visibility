@@ -30,41 +30,33 @@
     }
 }
 
--(void)clearMarginForDirection:(UIViewMarginDirection)direction {
-    switch (direction) {
-        case UIViewMarginDirectionTop:
-            [[self findConstraintFromView:self.superview forLayoutAttribute:NSLayoutAttributeTop] clear];
-            break;
-        case UIViewMarginDirectionLeft:
-            [[self findConstraintFromView:self.superview forLayoutAttribute:NSLayoutAttributeLeading] clear];
-            break;
-        case UIViewMarginDirectionBottom:
-            [[self findConstraintFromView:self.superview forLayoutAttribute:NSLayoutAttributeBottom] clear];
-            break;
-        case UIViewMarginDirectionRight:
-            [[self findConstraintFromView:self.superview forLayoutAttribute:NSLayoutAttributeRight] clear];
-            break;
-        default:
-            break;
+-(void)clearMarginForDirections:(UIViewMarginDirection)directions {
+    if (UIViewMarginDirectionTop & directions) {
+        [[self findConstraintFromView:self.superview forLayoutAttribute:NSLayoutAttributeTop] clear];
+    }
+    if (UIViewMarginDirectionLeft & directions) {
+        [[self findConstraintFromView:self.superview forLayoutAttribute:NSLayoutAttributeLeading] clear];
+    }
+    if (UIViewMarginDirectionBottom & directions) {
+        [[self findConstraintFromView:self.superview forLayoutAttribute:NSLayoutAttributeBottom] clear];
+    }
+    if (UIViewMarginDirectionRight & directions) {
+        [[self findConstraintFromView:self.superview forLayoutAttribute:NSLayoutAttributeTrailing] clear];
     }
 }
 
--(void)restoreMarginForDirection:(UIViewMarginDirection)direction {
-    switch (direction) {
-        case UIViewMarginDirectionTop:
-            [[self findConstraintFromView:self.superview forLayoutAttribute:NSLayoutAttributeTop] restore];
-            break;
-        case UIViewMarginDirectionLeft:
-            [[self findConstraintFromView:self.superview forLayoutAttribute:NSLayoutAttributeLeading] restore];
-            break;
-        case UIViewMarginDirectionBottom:
-            [[self findConstraintFromView:self.superview forLayoutAttribute:NSLayoutAttributeBottom] restore];
-            break;
-        case UIViewMarginDirectionRight:
-            [[self findConstraintFromView:self.superview forLayoutAttribute:NSLayoutAttributeRight] restore];
-            break;
-        default:
-            break;
+-(void)restoreMarginForDirections:(UIViewMarginDirection)directions {
+    if (UIViewMarginDirectionTop & directions) {
+        [[self findConstraintFromView:self.superview forLayoutAttribute:NSLayoutAttributeTop] restore];
+    }
+    if (UIViewMarginDirectionLeft & directions) {
+        [[self findConstraintFromView:self.superview forLayoutAttribute:NSLayoutAttributeLeading] restore];
+    }
+    if (UIViewMarginDirectionBottom & directions) {
+        [[self findConstraintFromView:self.superview forLayoutAttribute:NSLayoutAttributeBottom] restore];
+    }
+    if (UIViewMarginDirectionRight & directions) {
+        [[self findConstraintFromView:self.superview forLayoutAttribute:NSLayoutAttributeTrailing] restore];
     }
 }
 

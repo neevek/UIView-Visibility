@@ -14,17 +14,18 @@ typedef NS_ENUM(NSInteger, UIViewVisibility) {
     UIViewVisibilityGone
 };
 
-typedef NS_ENUM(NSInteger, UIViewMarginDirection) {
-    UIViewMarginDirectionTop,
-    UIViewMarginDirectionLeft,
-    UIViewMarginDirectionBottom,
-    UIViewMarginDirectionRight
+typedef NS_OPTIONS(NSUInteger, UIViewMarginDirection) {
+    UIViewMarginDirectionTop        = 1 << 0,
+    UIViewMarginDirectionLeft       = 1 << 1,
+    UIViewMarginDirectionBottom     = 1 << 2,
+    UIViewMarginDirectionRight      = 1 << 3,
+    UIViewMarginDirectionAll        = UIViewMarginDirectionTop|UIViewMarginDirectionLeft|UIViewMarginDirectionBottom|UIViewMarginDirectionRight
 };
 
 @interface UIView(Visibility)
 
 -(void)setVisibility:(UIViewVisibility)visibility;
--(void)clearMarginForDirection:(UIViewMarginDirection)direction;
--(void)restoreMarginForDirection:(UIViewMarginDirection)direction;
+-(void)clearMarginForDirections:(UIViewMarginDirection)directions;
+-(void)restoreMarginForDirections:(UIViewMarginDirection)directions;
 
 @end

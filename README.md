@@ -14,9 +14,11 @@ Usage
 
 // optionally clearing margins for the view to achieve true hiding
 [UIView clearMarginForDirection:UIViewMarginDirectionRight];
+[UIView clearMarginForDirection:UIViewMarginDirectionTop|UIViewMarginDirectionBottom];
 
 // restore margins for the view
 [UIView restoreMarginForDirection:UIViewMarginDirectionRight];
+[UIView restoreMarginForDirection:UIViewMarginDirectionTop|UIViewMarginDirectionBottom];
 ```
 
 Following are the enums that are needed to work with the above methods:
@@ -27,11 +29,12 @@ typedef NS_ENUM(NSInteger, UIViewVisibility) {
   UIViewVisibilityGone
 };
 
-typedef NS_ENUM(NSInteger, UIViewMarginDirection) {
-  UIViewMarginDirectionTop,
-  UIViewMarginDirectionLeft,
-  UIViewMarginDirectionBottom,
-  UIViewMarginDirectionRight
+typedef NS_OPTIONS(NSUInteger, UIViewMarginDirection) {
+    UIViewMarginDirectionTop        = 1 << 0,
+    UIViewMarginDirectionLeft       = 1 << 1,
+    UIViewMarginDirectionBottom     = 1 << 2,
+    UIViewMarginDirectionRight      = 1 << 3,
+    UIViewMarginDirectionAll        = UIViewMarginDirectionTop|UIViewMarginDirectionLeft|UIViewMarginDirectionBottom|UIViewMarginDirectionRight
 };
 ```
 Under MIT license
