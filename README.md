@@ -1,7 +1,7 @@
 UIView+Visibility
 =================
 
-In iOS with AutoLayout, there is no intuitive support for truly hiding a view, setting `UIView.hidden=YES` only causes the view to be invisible, the space is still occupied by the *hidden* view, in some cases this is not desired. In Android, we have `View.setVisibility(View.GONE)` to truly hide a view, this project provides two methods to achieve just that. With the nature of AutoLayout, we have to manually clear the margins of the view to our needs in real use cases(either left, top, right or bottom, or any combination of them), so two method calls is needed.
+In iOS with AutoLayout, there is no intuitive support for truly hiding a view, setting `UIView.hidden=YES` only causes the view to be invisible, the space is still occupied by the *hidden* view, in some cases this is not desired. In Android, we have `View.setVisibility(View.GONE)` to truly hide a view, in iOS with AutoLayout, in some cases, we may need to manually specify which directions of margins to clear or restore through the `affectedMarginDirections` argument.
 
 ![](https://raw.githubusercontent.com/neevek/UIView-Visibility/master/images/demo.gif)
 
@@ -10,18 +10,16 @@ Usage
 ```objective-c
 #import "UIView+Visibility.h"
 
+// hide the view without clearing its margins
 [UIView setVisibility:UIViewVisibilityGone];
 
-// optionally clearing margins for the view to achieve true hiding
-[UIView clearMarginForDirection:UIViewMarginDirectionRight];
-[UIView clearMarginForDirection:UIViewMarginDirectionTop|UIViewMarginDirectionBottom];
-
-// restore margins for the view
-[UIView restoreMarginForDirection:UIViewMarginDirectionRight];
-[UIView restoreMarginForDirection:UIViewMarginDirectionTop|UIViewMarginDirectionBottom];
+// hide the view and clear its top & bottom margins
+[UIView setVisibility:UIViewVisibilityGone affectedMarginDirections:UIViewMarginDirectionTop|UIViewMarginDirectionBottom];
+// show the view and restore its top & bottom margins
+[UIView setVisibility:UIViewVisibilityVisible affectedMarginDirections:UIViewMarginDirectionTop|UIViewMarginDirectionBottom];
 ```
 
-Following are the enums that are needed to work with the above methods:
+Following are the enums that are needed to work with the `setVisibility` method:
 ```objective-c
 typedef NS_ENUM(NSInteger, UIViewVisibility) {
   UIViewVisibilityVisible,
@@ -30,12 +28,14 @@ typedef NS_ENUM(NSInteger, UIViewVisibility) {
 };
 
 typedef NS_OPTIONS(NSUInteger, UIViewMarginDirection) {
+    UIViewMarginDirectionNone       = 0,
     UIViewMarginDirectionTop        = 1 << 0,
     UIViewMarginDirectionLeft       = 1 << 1,
     UIViewMarginDirectionBottom     = 1 << 2,
     UIViewMarginDirectionRight      = 1 << 3,
     UIViewMarginDirectionAll        = UIViewMarginDirectionTop|UIViewMarginDirectionLeft|UIViewMarginDirectionBottom|UIViewMarginDirectionRight
 };
+
 ```
 Under MIT license
 =================

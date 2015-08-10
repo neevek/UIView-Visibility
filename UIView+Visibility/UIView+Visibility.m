@@ -12,11 +12,16 @@
 @implementation UIView(Visibility)
 
 -(void)setVisibility:(UIViewVisibility)visibility {
+    [self setVisibility:visibility affectedMarginDirections:UIViewMarginDirectionNone];
+}
+
+-(void)setVisibility:(UIViewVisibility)visibility affectedMarginDirections:(UIViewMarginDirection)affectedMarginDirections {
     switch (visibility) {
         case UIViewVisibilityVisible:
             self.hidden = NO;
             [[self findConstraintFromView:self forLayoutAttribute:NSLayoutAttributeWidth] restore];
             [[self findConstraintFromView:self forLayoutAttribute:NSLayoutAttributeHeight] restore];
+            [self restoreMarginForDirections:affectedMarginDirections];
             break;
         case UIViewVisibilityInvisible:
             self.hidden = YES;
@@ -24,38 +29,47 @@
         case UIViewVisibilityGone:
             [[self findConstraintFromView:self forLayoutAttribute:NSLayoutAttributeWidth] clear];
             [[self findConstraintFromView:self forLayoutAttribute:NSLayoutAttributeHeight] clear];
+            [self clearMarginForDirections:affectedMarginDirections];
             break;
         default:
             break;
     }
 }
 
--(void)clearMarginForDirections:(UIViewMarginDirection)directions {
-    if (UIViewMarginDirectionTop & directions) {
+-(void)clearMarginForDirections:(UIViewMarginDirection)affectedMarginDirections {
+    if (affectedMarginDirections == UIViewMarginDirectionNone) {
+        return;
+    }
+    
+    if (UIViewMarginDirectionTop & affectedMarginDirections) {
         [[self findConstraintFromView:self.superview forLayoutAttribute:NSLayoutAttributeTop] clear];
     }
-    if (UIViewMarginDirectionLeft & directions) {
+    if (UIViewMarginDirectionLeft & affectedMarginDirections) {
         [[self findConstraintFromView:self.superview forLayoutAttribute:NSLayoutAttributeLeading] clear];
     }
-    if (UIViewMarginDirectionBottom & directions) {
+    if (UIViewMarginDirectionBottom & affectedMarginDirections) {
         [[self findConstraintFromView:self.superview forLayoutAttribute:NSLayoutAttributeBottom] clear];
     }
-    if (UIViewMarginDirectionRight & directions) {
+    if (UIViewMarginDirectionRight & affectedMarginDirections) {
         [[self findConstraintFromView:self.superview forLayoutAttribute:NSLayoutAttributeTrailing] clear];
     }
 }
 
--(void)restoreMarginForDirections:(UIViewMarginDirection)directions {
-    if (UIViewMarginDirectionTop & directions) {
+-(void)restoreMarginForDirections:(UIViewMarginDirection)affectedMarginDirections {
+    if (affectedMarginDirections == UIViewMarginDirectionNone) {
+        return;
+    }
+    
+    if (UIViewMarginDirectionTop & affectedMarginDirections) {
         [[self findConstraintFromView:self.superview forLayoutAttribute:NSLayoutAttributeTop] restore];
     }
-    if (UIViewMarginDirectionLeft & directions) {
+    if (UIViewMarginDirectionLeft & affectedMarginDirections) {
         [[self findConstraintFromView:self.superview forLayoutAttribute:NSLayoutAttributeLeading] restore];
     }
-    if (UIViewMarginDirectionBottom & directions) {
+    if (UIViewMarginDirectionBottom & affectedMarginDirections) {
         [[self findConstraintFromView:self.superview forLayoutAttribute:NSLayoutAttributeBottom] restore];
     }
-    if (UIViewMarginDirectionRight & directions) {
+    if (UIViewMarginDirectionRight & affectedMarginDirections) {
         [[self findConstraintFromView:self.superview forLayoutAttribute:NSLayoutAttributeTrailing] restore];
     }
 }

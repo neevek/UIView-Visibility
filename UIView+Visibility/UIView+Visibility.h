@@ -15,6 +15,7 @@ typedef NS_ENUM(NSInteger, UIViewVisibility) {
 };
 
 typedef NS_OPTIONS(NSUInteger, UIViewMarginDirection) {
+    UIViewMarginDirectionNone       = 0,
     UIViewMarginDirectionTop        = 1 << 0,
     UIViewMarginDirectionLeft       = 1 << 1,
     UIViewMarginDirectionBottom     = 1 << 2,
@@ -25,7 +26,6 @@ typedef NS_OPTIONS(NSUInteger, UIViewMarginDirection) {
 @interface UIView(Visibility)
 
 -(void)setVisibility:(UIViewVisibility)visibility;
--(void)clearMarginForDirections:(UIViewMarginDirection)directions;
--(void)restoreMarginForDirections:(UIViewMarginDirection)directions;
+-(void)setVisibility:(UIViewVisibility)visibility affectedMarginDirections:(UIViewMarginDirection)affectedMarginDirections;
 
 @end

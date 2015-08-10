@@ -24,8 +24,7 @@
     
     [self delay:10 forBlock:^{
         // hide the second line
-        [self.lbSecondLine setVisibility:UIViewVisibilityGone];
-        [self.lbSecondLine clearMarginForDirections:UIViewMarginDirectionBottom];
+        [self.lbSecondLine setVisibility:UIViewVisibilityGone affectedMarginDirections:UIViewMarginDirectionBottom];
         
         [UIView animateWithDuration:1 animations:^{
             // the call to 'layoutIfNeeded' is NOT needed if you do not want to animate the changes.
@@ -35,8 +34,7 @@
             
             [self delay:1 forBlock:^{
                 // hide the image
-                [self.ivImage setVisibility:UIViewVisibilityGone];
-                [self.ivImage clearMarginForDirections:UIViewMarginDirectionLeft|UIViewMarginDirectionRight];
+                [self.ivImage setVisibility:UIViewVisibilityGone affectedMarginDirections:UIViewMarginDirectionLeft|UIViewMarginDirectionRight];
                 
                 // the call to 'layoutIfNeeded' is NOT needed if you do not want to animate the changes.
                 [UIView animateWithDuration:1 animations:^{
@@ -45,8 +43,7 @@
                     
                     // restore the dimension of the image and restore the margin
                     [self delay:1 forBlock:^{
-                        [self.ivImage setVisibility:UIViewVisibilityVisible];
-                        [self.ivImage restoreMarginForDirections:UIViewMarginDirectionLeft|UIViewMarginDirectionRight];
+                        [self.ivImage setVisibility:UIViewVisibilityVisible affectedMarginDirections:UIViewMarginDirectionLeft|UIViewMarginDirectionRight];
                         [UIView animateWithDuration:1 animations:^{
                             [self.ivImage.superview layoutIfNeeded];
                         }];
