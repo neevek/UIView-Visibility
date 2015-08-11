@@ -35,6 +35,10 @@
         default:
             break;
     }
+    
+    if (visibility != UIViewVisibilityInvisible) {
+        [self layoutIfNeeded];
+    }
 }
 
 -(void)clearMarginForDirections:(UIViewMarginDirection)affectedMarginDirections {
