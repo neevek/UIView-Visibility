@@ -1,3 +1,8 @@
+Note
+====
+This library will NOT be updated except for merging pull requests, becase I don't have enough spare time. You can still use it if works for you, I will be thankful that you contribute back by sending pull requests for bugs that may be found. (2018.06.30)
+
+
 UIView+Visibility
 =================
 
